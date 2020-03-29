@@ -1,0 +1,6 @@
+framework module Pods_TheMovieDB_Viper {
+  umbrella header "Pods-TheMovieDB-Viper-umbrella.h"
+
+  export *
+  module * { export * }
+}
