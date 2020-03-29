@@ -37,7 +37,7 @@ extension MoviesPresenter: MoviesPresenterInterface {
     }
     
     func rowTapped(movieId: Int) {
-        //Go to movie detail
+        router?.navigateToMovieDetail(movieId: movieId)
     }
     
     func getNumberOfRows() -> Int {

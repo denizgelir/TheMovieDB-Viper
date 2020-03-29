@@ -10,12 +10,13 @@ import Foundation
 import UIKit
 
 protocol MoviesRouterInterface: class {
-
+    func navigateToMovieDetail(movieId: Int)
 }
 
 class MoviesRouter: NSObject {
 
     weak var presenter: MoviesPresenterInterface?
+    private weak var viewController: MoviesViewController?
 
     static func setupModule() -> MoviesViewController {
         let vc = MoviesViewController()
@@ -25,12 +26,17 @@ class MoviesRouter: NSObject {
         vc.presenter = presenter
         router.presenter = presenter
         interactor.output = presenter
+        router.viewController = vc
         return vc
 }
     
 }
 
 extension MoviesRouter: MoviesRouterInterface {
-
+    func navigateToMovieDetail(movieId: Int) {
+        let vc = MovieDetailRouter.setupModule()
+        vc.movieId = movieId
+        viewController?.navigationController?.pushViewController(vc, animated: true)
+    }
 }
 

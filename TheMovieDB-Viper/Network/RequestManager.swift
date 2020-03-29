@@ -19,5 +19,9 @@ class RequestManager {
         NetworkManager.shared.request(Router.getPopularMovies, decodeToType: MovieList.self, completionHandler: completionHandler)
     }
     
+    func getMovieDetail(movieId: Int, completionHandler: @escaping (Results<MovieDetail>) -> ()) {
+           NetworkManager.shared.request(Router.getMovieDetail(movieId: movieId), decodeToType: MovieDetail.self, completionHandler: completionHandler)
+       }
+    
 }
 

@@ -17,11 +17,14 @@ struct Constants {
     struct Sizes {
         static let tableViewCellHeight: CGFloat = 80
     }
+    
+    static let apiKey: String  = "0353ccdb8a4f84ce76ec1fc978c5ec14"
+
     struct BaseURL {
         static let baseURL: String = "https://api.themoviedb.org"
-        static let apiKey = "0353ccdb8a4f84ce76ec1fc978c5ec14"
-        static let popularMoviesURL: String = baseURL + "/3/movie/popular?api_key=\(apiKey)&language=en-US"
+        static let apiURL : String = "?api_key=\(Constants.apiKey)&language=en-US"
+        static let popularMoviesURL: String = baseURL + "/3/movie/popular" + apiURL
+        static let movieDetailURL: String = baseURL + "/3/movie/"
     }
     
 }
-

@@ -62,6 +62,7 @@ extension MoviesViewController: UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.CellIds.movieCellId, for: indexPath)
         let movie = presenter.getMovieItems(at: indexPath.row)
+        cell.selectionStyle = .none
         cell.textLabel?.text = movie.title
         return cell
     }
@@ -70,4 +71,8 @@ extension MoviesViewController: UITableViewDelegate,UITableViewDataSource {
         return Constants.Sizes.tableViewCellHeight
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let movie = presenter.getMovieItems(at: indexPath.row)
+        presenter.rowTapped(movieId: movie.id!)
+    }
 }
