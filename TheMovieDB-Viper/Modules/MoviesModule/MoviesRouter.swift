@@ -24,7 +24,7 @@ class MoviesRouter: NSObject {
         let presenter = MoviesPresenter(interactor: interactor, router: router, view: vc)
         vc.presenter = presenter
         router.presenter = presenter
-        interactor.presenter = presenter
+        interactor.output = presenter
         return vc
 }
     

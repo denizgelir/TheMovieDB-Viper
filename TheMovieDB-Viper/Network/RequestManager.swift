@@ -15,9 +15,9 @@ class RequestManager {
         return instance
     }()
 
-//    func getPopularMovies(completionHandler: @escaping (Results<DriverModel>) -> ()) {
-//        NetworkManager.shared.request(Router.driver, decodeToType: DriverModel.self, completionHandler: completionHandler)
-//    }
+    func getPopularMovies(completionHandler: @escaping (Results<MovieList>) -> ()) {
+        NetworkManager.shared.request(Router.getPopularMovies, decodeToType: MovieList.self, completionHandler: completionHandler)
+    }
     
 }
 

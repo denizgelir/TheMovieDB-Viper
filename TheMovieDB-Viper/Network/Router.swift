@@ -11,25 +11,25 @@ import Alamofire
 
 enum Router: URLRequestConvertible {
     
-    case popularMovies
+    case getPopularMovies
     
     var method: HTTPMethod {
         switch self {
-        case .popularMovies:
+        case .getPopularMovies:
             return .get
         }
     }
     
     var parameters: [String : Any]? {
         switch self {
-        case .popularMovies:
+        case .getPopularMovies:
             return nil
         }
     }
     
     var url: URL {
         switch self {
-        case .popularMovies:
+        case .getPopularMovies:
             let url = URL(string: Constants.BaseURL.popularMoviesURL)!
             print(url)
             return url

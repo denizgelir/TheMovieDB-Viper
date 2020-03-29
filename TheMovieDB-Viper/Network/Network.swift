@@ -25,7 +25,6 @@ class NetworkManager {
         AF.request(request).responseData { response in
             switch response.result {
             case .success(let data):
-                print("data",data)
                 do {
                     let decoded = try JSONDecoder().decode(T.self, from: data)
                     completionHandler(.success(decoded))
